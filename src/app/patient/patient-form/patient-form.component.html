@@ -1,0 +1,22 @@
+<h2>PATIENTS - form</h2>
+
+<form [formGroup]="form">
+
+  <label>First Name: <input formControlName="firstName"></label><br>
+  <label>Last Name: <input formControlName="lastName"></label><br>
+  <label>ID number: <input formControlName="idNumber"></label><br>
+  <label>Date of birth: <input formControlName="dateOfBirth"></label><br>
+  <label>Sex: <input formControlName="sex"></label><br>
+  <label>Telephone number: <input formControlName="telephoneNumber"></label><br>
+  <label>Email: <input formControlName="emailAddrs"></label><br>
+  <label>Insurance company: <input formControlName="insuranceCmp"></label><br><br>
+  Address:<br>
+  <label>Street: <input formControlName="street"></label><br>
+  <label>House number: <input formControlName="houseNumber"></label><br>
+  <label>Post code: <input formControlName="postCode"></label><br>
+  <label>City: <input formControlName="city"></label><br>
+  <label>Country: <input formControlName="country"></label><br><br>
+
+  <button (click)="addPatient()" *ngIf="form.value.id === null">Add patient</button>
+
+</form>

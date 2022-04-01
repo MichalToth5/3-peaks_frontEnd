@@ -1,0 +1,42 @@
+<h3>List of patients:</h3>
+
+<div *ngIf="!patients || patients?.length === 0">
+  The list of patients is empty.<br>
+</div>
+
+<table class="patientTable" *ngIf="patients?.length > 0">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>ID number</th>
+      <th>Date of birth</th>
+      <th>Sex</th>
+      <th>Telephone number</th>
+      <th>Email</th>
+      <th>Insurance Company</th>
+      <th>Street</th>
+      <th>House number</th>
+      <th>Post code</th>
+      <th>City</th>
+      <th>Country</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let patient of patients">
+    <td>{{patient.firstName}}</td>
+    <td>{{patient.lastName}}</td>
+    <td>{{patient.idNumber}}</td>
+    <td>{{patient.dateOfBirth}}</td>
+    <td>{{patient.sex}}</td>
+    <td>{{patient.telephoneNumber}}</td>
+    <td>{{patient.emailAddrs}}</td>
+    <td>{{patient.insuranceCmp}}</td>
+    <td>{{patient.street}}</td>
+    <td>{{patient.houseNumber}}</td>
+    <td>{{patient.postCode}}</td>
+    <td>{{patient.city}}</td>
+    <td>{{patient.country}}</td>
+  </tr>
+  </tbody>
+</table>
