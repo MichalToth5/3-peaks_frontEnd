@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Patient} from "../../models/patient.model";
 import {Router} from "@angular/router";
+import {PatientService} from "../../patient.service";
 
 @Component({
   selector: 'app-patient-page',
@@ -9,16 +10,16 @@ import {Router} from "@angular/router";
 })
 export class PatientPageComponent {
 
-  patients: Patient[] = [];
+  patients:Patient[] = [];
+  constructor(private router:Router, private service:PatientService) { }
 
-  constructor(private router: Router) { }
-
-  goBack(): void {
+  goBack(): void{
     this.router.navigate(['']);
   }
-
-  addPatient(patient: Patient): void {
-
+  refreshList() : void{
+    this.service.getPatients().subscribe(data => this.patients = data)
   }
-
+  addPatient(patient: Patient): void {
+    this.service.addPatient(patient).subscribe(data => this.refreshList())
+  }
 }

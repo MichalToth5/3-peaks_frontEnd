@@ -9,7 +9,7 @@ import { VaccineFormComponent } from './vaccine/vaccine-form/vaccine-form.compon
 import { VaccineListComponent } from './vaccine/vaccine-list/vaccine-list.component';
 import { VaccinePageComponent } from './vaccine/vaccine-page/vaccine-page.component';
 import {ReactiveFormsModule} from "@angular/forms";
-import { MainMenuComponent } from './mainMenu/main-menu/main-menu.component';
+import { MainMenuComponent } from './main-menu/main-menu.component';
 import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({

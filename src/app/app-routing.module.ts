@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {MainMenuComponent} from "./mainMenu/main-menu/main-menu.component";
+import {MainMenuComponent} from "./main-menu/main-menu.component";
 import {PatientPageComponent} from "./patient/patient-page/patient-page.component";
 import {VaccinePageComponent} from "./vaccine/vaccine-page/vaccine-page.component";
 
