@@ -1,12 +1,13 @@
+
 <div>
-  <table>
+  <table class="table">
     <tr>
-      <th>Meno</th>
-      <th>Rodne cislo</th>
-      <th>Datum narodenia</th>
-      <th>Adresa</th>
-      <th>Pocet Davok</th>
-      <th>Plna zaockovanost od</th>
+      <th scope="col">Meno</th>
+      <th scope="col">Rodne cislo</th>
+      <th scope="col">Datum narodenia</th>
+      <th scope="col">Adresa</th>
+      <th scope="col">Pocet Davok</th>
+      <th scope="col">Plna zaockovanost od</th>
     </tr>
     <!--TODO doplnenie info do tabulky o pocte davok a plnej zaockovanosti, prepojenie na vaccineShot -->
     <tr *ngFor="let p of patients">

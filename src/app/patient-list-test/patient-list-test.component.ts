@@ -20,8 +20,4 @@ export class PatientListTestComponent implements OnInit {
     })
   }
 
-
-
-
-
 }

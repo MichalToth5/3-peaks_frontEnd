@@ -1,37 +1,79 @@
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<div class="jumbotron text-center">
+  <h1>Pacienti</h1>
+</div>
 <h2 class="text-center">Pridávanie nových pacientov</h2><br>
 
 <form [formGroup]="form">
   <div class="container">
     <div class="row">
+
       <div class="col-sm-4">
         <h3>Osobné informácie</h3>
         <hr class="my-4">
-        <label>Meno: <input formControlName="firstName"></label><br>
-        <label>Priezvisko: <input formControlName="lastName"></label><br>
-        <label>Identifikačné číslo: <input formControlName="idNumber"></label><br>
-        <label>Dátum narodenia: <input formControlName="dateOfBirth"></label><br>
-        <label>Pohlavie: <input formControlName="sex"></label><br>
+        <div class="form-group">
+          <label>Meno:</label>
+          <input class="form-control" formControlName="firstName"><br>
+        </div>
+        <div class="form-group">
+          <label>Priezvisko:</label>
+          <input class="form-control" formControlName="lastName"><br>
+        </div>
+        <div class="form-group">
+          <label>Identifikačné číslo:</label>
+          <input class="form-control" formControlName="idNumber"><br>
+        </div>
+        <div class="form-group">
+          <label>Dátum narodenia:</label>
+          <input class="form-control" formControlName="dateOfBirth"><br>
+        </div>
+        <div class="form-group">
+          <label>Pohlavie:</label>
+          <input class="form-control" formControlName="sex"><br>
+        </div>
       </div>
+
       <div class="col-sm-4">
         <h3>Kontaktné údaje</h3>
         <hr class="my-4">
-        <label>Telefónne číslo: <input formControlName="telephoneNumber"></label><br>
-        <label>Email: <input formControlName="emailAddrs"></label><br>
-        <label>Zdravotná poisťovňa: <input formControlName="insuranceCmp"></label><br><br>
+        <div>
+          <div class="form-group">
+            <label>Telefónne číslo:</label>
+            <input class="form-control" formControlName="telephoneNumber"><br>
+          </div>
+          <div >
+            <label>Email:</label>
+            <input class="form-control" formControlName="emailAddrs"><br>
+          </div>
+          <div class="form-group">
+            <label>Zdravotná poisťovňa:</label>
+            <input class="form-control" formControlName="insuranceCmp"><br><br>
+          </div>
+        </div>
       </div>
+
       <div class="col-sm-4">
         <h3>Adresa</h3>
         <hr class="my-4">
-        <label>Ulica: <input formControlName="street"></label><br>
-        <label>Číslo domu: <input formControlName="houseNumber"></label><br>
-        <label>PSČ: <input formControlName="postCode"></label><br>
-        <label>Mesto: <input formControlName="city"></label><br>
-        <label>Štát: <input formControlName="country"></label><br><br>
+        <div class="form-group">
+          <label>Ulica:</label>
+          <input class="form-control" formControlName="street"><br>
+        </div>
+        <div class="form-group">
+          <label>Číslo domu:</label>
+          <input class="form-control" formControlName="houseNumber"><br>
+        </div>
+        <div class="form-group">
+          <label>PSČ:</label>
+          <input class="form-control" formControlName="postCode"><br>
+        </div>
+        <div class="form-group">
+          <label>Mesto:</label>
+          <input class="form-control" formControlName="city"><br>
+        </div>
+        <div class="form-group">
+          <label>Štát:</label>
+          <input class="form-control" formControlName="country"><br><br>
+        </div>
       </div>
     </div>
 

@@ -1,14 +1,22 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Patient} from "../../models/patient.model";
+import {Router} from "@angular/router";
+import {PatientService} from "../../patient.service";
 
 @Component({
   selector: 'app-patient-list',
   templateUrl: './patient-list.component.html',
   styleUrls: ['./patient-list.component.css']
 })
-export class PatientListComponent {
+export class PatientListComponent implements OnInit{
 
-  @Input()
   patients: Patient[] = [];
+  constructor(private router:Router, private service:PatientService) { }
+
+  ngOnInit(): void {
+    this.service.getPatients().subscribe(data => {
+      this.patients = data;
+    })
+  }
 
 }
