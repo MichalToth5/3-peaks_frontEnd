@@ -1,1 +1,28 @@
-<p>vaccine-list works!</p>
+<h3>List of vaccines:</h3>
+
+<div *ngIf="!vaccines || vaccines?.length === 0">
+  The list of vaccines is empty.<br>
+</div>
+
+<table class="vaccineTable" *ngIf="vaccines?.length > 0">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Manufacturer</th>
+    <th>Next shot</th>
+    <th>Minimal age</th>
+    <th>Maximal age</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let vaccine of vaccines">
+    <td>{{vaccine.name}}</td>
+    <td>{{vaccine.type}}</td>
+    <td>{{vaccine.manufacturer}}</td>
+    <td>{{vaccine.nextShotInDays}}</td>
+    <td>{{vaccine.minAge}}</td>
+    <td>{{vaccine.maxAge}}</td>
+  </tr>
+  </tbody>
+</table>

@@ -1,1 +1,14 @@
-<p>vaccine-form works!</p>
+<h2>VACCINES - form</h2>
+
+<form [formGroup]="form">
+
+  <label>Name: <input formControlName="name"></label><br>
+  <label>Type: <input formControlName="type"></label><br>
+  <label>Manufacturer: <input formControlName="manufacturer"></label><br>
+  <label>Next shot (days): <input formControlName="nextShotInDays"></label><br>
+  <label>Minimal age: <input formControlName="minAge"></label><br>
+  <label>Maximal age: <input formControlName="maxAge"></label><br><br>
+
+  <button (click)="addVaccine()" *ngIf="form.value.id === null">Add vaccine</button>
+
+</form>

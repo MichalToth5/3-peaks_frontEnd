@@ -1,1 +1,10 @@
-<p>vaccine-page works!</p>
+<h1>VACCINES</h1>
+
+<app-vaccine-form (addNewVaccine)="addVaccine($event)"></app-vaccine-form>
+
+<app-vaccine-list></app-vaccine-list>
+
+<div>
+  <br>
+  <button (click)="goBack()">Go to main menu</button>
+</div>
