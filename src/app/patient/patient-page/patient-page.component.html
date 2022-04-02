@@ -1,10 +1,11 @@
-<h1>PATIENTS</h1>
-
+<div class="jumbotron text-center">
+  <h1>Pacienti</h1>
+</div>
 <app-patient-form (addNewPatient)="addPatient($event)"></app-patient-form>
 
 <app-patient-list></app-patient-list>
 
-<div>
+<div class="container">
   <br>
-  <button (click)="goBack()">Go to main menu</button>
+  <button (click)="goBack()"type="button" class="btn"Basic>Späť na hlavné menu</button>
 </div>
