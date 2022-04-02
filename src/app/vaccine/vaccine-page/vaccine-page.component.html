@@ -1,10 +1,11 @@
-<h1>VACCINES</h1>
-
+<div class="jumbotron text-center">
+  <h1>Vakcíny</h1>
+</div>
 <app-vaccine-form (addNewVaccine)="addVaccine($event)"></app-vaccine-form>
 
 <app-vaccine-list></app-vaccine-list>
 
-<div>
+<div class="container">
   <br>
-  <button (click)="goBack()">Go to main menu</button>
+  <button (click)="goBack()"type="button" class="btn"Basic>Späť na hlavné menu</button>
 </div>

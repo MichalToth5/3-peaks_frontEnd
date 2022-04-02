@@ -1,14 +1,27 @@
-<h2>VACCINES - form</h2>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<h2 class="text-center">Pridanie novej vakcíny</h2><br>
 
 <form [formGroup]="form">
+  <div class="container">
+    <div class="row">
+      <div class="row-cols-sm-6">
+        <label>Názov: <input formControlName="name"></label><br>
+        <label>Typ: <input formControlName="type"></label><br>
+        <label>Výrobca: <input formControlName="manufacturer"></label><br>
+      </div>
+      <hr class="my-4">
+      <div class="row-cols-sm-6">
+        <label>Podanie druhej dávky(dni): <input formControlName="nextShotInDays"></label><br>
+        <label>Minimálny vek: <input formControlName="minAge"></label><br>
+        <label>Maximálny vek: <input formControlName="maxAge"></label><br><br>
+      </div>
+    </div>
 
-  <label>Name: <input formControlName="name"></label><br>
-  <label>Type: <input formControlName="type"></label><br>
-  <label>Manufacturer: <input formControlName="manufacturer"></label><br>
-  <label>Next shot (days): <input formControlName="nextShotInDays"></label><br>
-  <label>Minimal age: <input formControlName="minAge"></label><br>
-  <label>Maximal age: <input formControlName="maxAge"></label><br><br>
-
-  <button (click)="addVaccine()" *ngIf="form.value.id === null">Add vaccine</button>
-
+    <button (click)="addVaccine()" *ngIf="form.value.id === null" type="button" class="btn">Pridať vakcínu</button>
+  </div>
+  <hr class="my-4">
 </form>
