@@ -11,6 +11,8 @@ import { VaccinePageComponent } from './vaccine/vaccine-page/vaccine-page.compon
 import {ReactiveFormsModule} from "@angular/forms";
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import {AppRoutingModule} from "./app-routing.module";
+import { PatientListTestComponent } from './patient-list-test/patient-list-test.component';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import {AppRoutingModule} from "./app-routing.module";
     VaccineFormComponent,
     VaccineListComponent,
     VaccinePageComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    PatientListTestComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

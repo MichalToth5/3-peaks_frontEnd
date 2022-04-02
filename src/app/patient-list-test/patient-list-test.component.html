@@ -1,0 +1,21 @@
+<div>
+  <table>
+    <tr>
+      <th>Meno</th>
+      <th>Rodne cislo</th>
+      <th>Datum narodenia</th>
+      <th>Adresa</th>
+      <th>Pocet Davok</th>
+      <th>Plna zaockovanost od</th>
+    </tr>
+    <!--TODO doplnenie info do tabulky o pocte davok a plnej zaockovanosti, prepojenie na vaccineShot -->
+    <tr *ngFor="let p of patients">
+      <td>{{p.firstName + p.lastName}}</td>
+      <td>{{p.idNumber}}</td>
+      <td>{{p.dateOfBirth}}</td>
+      <td>{{p.city + ', ' + p.street}}</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </table>
+</div>
