@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Vaccine} from "../../models/vaccine.model";
 import {Router} from "@angular/router";
-import {VaccineService} from "../../vaccine.service";
+import {VaccineService} from "../../services/vaccine.service";
 
 @Component({
   selector: 'app-vaccine-list',

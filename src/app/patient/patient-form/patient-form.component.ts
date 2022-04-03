@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {Patient} from "../../models/patient.model";
-import {PatientService} from "../../patient.service";
+import {PatientService} from "../../services/patient.service";
 
 @Component({
   selector: 'app-patient-form',

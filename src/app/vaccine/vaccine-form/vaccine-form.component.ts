@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Vaccine} from "../../models/vaccine.model";
 import {FormControl, FormGroup} from "@angular/forms";
-import {VaccineService} from "../../vaccine.service";
+import {VaccineService} from "../../services/vaccine.service";
 
 @Component({
   selector: 'app-vaccine-form',
