@@ -1,30 +1,32 @@
+<div class="sidebar">
+  <a class="active" href='/patient'>Pacienti</a>
+  <a href='/vaccine'>Vakcíny</a>
+</div>
 <div class="container">
   <h3>Zoznam vakcín:</h3>
-
+  <a href="/vaccine/add" class="button_add" type="button" style="float: right;">Pridať vakcinu</a>
   <div *ngIf="!vaccines || vaccines?.length === 0">
-    Zoznam vakcín je prázdny.<br>
+    <div>
+      Zoznam vakcín je prázdny.<br>
+    </div>
   </div>
-
-  <table class="vaccineTable" *ngIf="vaccines?.length > 0">
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Manufacturer</th>
-      <th>Next shot</th>
-      <th>Minimal age</th>
-      <th>Maximal age</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let vaccine of vaccines">
-      <td>{{vaccine.name}}</td>
-      <td>{{vaccine.type}}</td>
-      <td>{{vaccine.manufacturer}}</td>
-      <td>{{vaccine.nextShotInDays}}</td>
-      <td>{{vaccine.minAge}}</td>
-      <td>{{vaccine.maxAge}}</td>
-    </tr>
-    </tbody>
-  </table>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Názov</th>
+          <th scope="col">Typ</th>
+          <th scope="col">Výrobca</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let v of vaccines">
+        <td>{{v.name}}</td>
+        <td>{{v.type}}</td>
+        <td>{{v.manufacturer}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <hr class="my-4">
 </div>

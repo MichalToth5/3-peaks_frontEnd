@@ -6,25 +6,27 @@ import {VaccinePageComponent} from "./vaccine/vaccine-page/vaccine-page.componen
 import {PatientListTestComponent} from "./patient-list-test/patient-list-test.component";
 import {PatientFormComponent} from "./patient/patient-form/patient-form.component";
 import {PatientListComponent} from "./patient/patient-list/patient-list.component";
+import {VaccineFormComponent} from "./vaccine/vaccine-form/vaccine-form.component";
+import {VaccineListComponent} from "./vaccine/vaccine-list/vaccine-list.component";
 
 
 
 const routes: Routes = [
   {
-    path:"patients",
+    path:"patient",
     component: PatientListComponent
   },
   {
-    path:"patients/add",
+    path:"patient/add",
     component: PatientFormComponent
   },
   {
-    path:"patients-test",
-    component: PatientListTestComponent
+    path: "vaccine",
+    component: VaccineListComponent
   },
   {
-    path: "vaccines",
-    component: VaccinePageComponent
+    path:"vaccine/add",
+    component: VaccineFormComponent
   },
   {
     path: '',

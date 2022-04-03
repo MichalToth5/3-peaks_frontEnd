@@ -42,7 +42,7 @@ export class VaccineFormComponent {
     this.form.controls['name'].setValue(vaccine.name);
     this.form.controls['type'].setValue(vaccine.type);
     this.form.controls['manufacturer'].setValue(vaccine.manufacturer);
-    this.form.controls['naxtShotInDays'].setValue(vaccine.nextShotInDays);
+    this.form.controls['nextShotInDays'].setValue(vaccine.nextShotInDays);
     this.form.controls['minAge'].setValue(vaccine.minAge);
     this.form.controls['maxAge'].setValue(vaccine.maxAge);
   }

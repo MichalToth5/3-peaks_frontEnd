@@ -17,10 +17,10 @@ export class MainMenuComponent {
 
   openWindow(m: MENU) {
     if (m === MENU.PATIENTS) {
-      this.router.navigate(['/patients']);
+      this.router.navigate(['/patient']);
     }
     if (m === MENU.VACCINES) {
-      this.router.navigate(['/vaccines']);
+      this.router.navigate(['/vaccine']);
     }
   }
 
