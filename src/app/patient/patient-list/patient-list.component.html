@@ -21,7 +21,7 @@
       <!--TODO doplnenie info do tabulky o pocte davok a plnej zaockovanosti, prepojenie na vaccineShot -->
       <tbody>
       <tr *ngFor="let p of patients">
-        <td>{{p.firstName + p.lastName}}</td>
+        <td>{{p.firstName +' ' + p.lastName}}</td>
         <td>{{p.idNumber}}</td>
         <td>{{p.dateOfBirth}}</td>
         <td>{{p.city + ', ' + p.street}}</td>
