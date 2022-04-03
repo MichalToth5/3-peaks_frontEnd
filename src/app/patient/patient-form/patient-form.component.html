@@ -1,4 +1,4 @@
-<div class="jumbotron text-center">
+<div class="jumbotron text-center" style="background-color: #fdebdf">
   <h1>Pacienti</h1>
 </div>
 <h2 class="text-center">Pridávanie nových pacientov</h2><br>
@@ -12,23 +12,23 @@
         <hr class="my-4">
         <div class="form-group">
           <label>Meno:</label>
-          <input class="form-control" formControlName="firstName"><br>
+          <input class="form-control" formControlName="firstName" placeholder="Vložte meno..."required><br>
         </div>
         <div class="form-group">
           <label>Priezvisko:</label>
-          <input class="form-control" formControlName="lastName"><br>
+          <input class="form-control" formControlName="lastName"placeholder="Vložte priezvisko..."required><br>
         </div>
         <div class="form-group">
           <label>Identifikačné číslo:</label>
-          <input class="form-control" formControlName="idNumber"><br>
+          <input class="form-control" formControlName="idNumber"placeholder="Vložte id..."required><br>
         </div>
         <div class="form-group">
           <label>Dátum narodenia:</label>
-          <input class="form-control" formControlName="dateOfBirth"><br>
+          <input class="form-control" formControlName="dateOfBirth"placeholder="Vložte dátum narodenia..."required><br>
         </div>
         <div class="form-group">
           <label>Pohlavie:</label>
-          <input class="form-control" formControlName="sex"><br>
+          <input class="form-control" formControlName="sex"placeholder="Vložte pohlavie..."required><br>
         </div>
       </div>
 
@@ -38,15 +38,15 @@
         <div>
           <div class="form-group">
             <label>Telefónne číslo:</label>
-            <input class="form-control" formControlName="telephoneNumber"><br>
+            <input class="form-control" formControlName="telephoneNumber"placeholder="Vložte tel.číslo..."required><br>
           </div>
           <div >
             <label>Email:</label>
-            <input class="form-control" formControlName="emailAddrs"><br>
+            <input class="form-control" formControlName="emailAddrs"placeholder="Vložte email..."required><br>
           </div>
           <div class="form-group">
             <label>Zdravotná poisťovňa:</label>
-            <input class="form-control" formControlName="insuranceCmp"><br><br>
+            <input class="form-control" formControlName="insuranceCmp"placeholder="Vložte zdravotnú poisťovňu..."required><br><br>
           </div>
         </div>
       </div>
@@ -56,28 +56,28 @@
         <hr class="my-4">
         <div class="form-group">
           <label>Ulica:</label>
-          <input class="form-control" formControlName="street"><br>
+          <input class="form-control" formControlName="street"placeholder="Vložte ulicu..."required><br>
         </div>
         <div class="form-group">
           <label>Číslo domu:</label>
-          <input class="form-control" formControlName="houseNumber"><br>
+          <input class="form-control" formControlName="houseNumber"placeholder="Vložte číslo domu..."required><br>
         </div>
         <div class="form-group">
           <label>PSČ:</label>
-          <input class="form-control" formControlName="postCode"><br>
+          <input class="form-control" formControlName="postCode"placeholder="Vložte PSČ..."required><br>
         </div>
         <div class="form-group">
           <label>Mesto:</label>
-          <input class="form-control" formControlName="city"><br>
+          <input class="form-control" formControlName="city"placeholder="Vložte mesto..."required><br>
         </div>
         <div class="form-group">
           <label>Štát:</label>
-          <input class="form-control" formControlName="country"><br><br>
+          <input class="form-control" formControlName="country"placeholder="Vložte štát..."required><br><br>
         </div>
       </div>
     </div>
 
-    <button (click)="addPatient()"  *ngIf="form.value.id === null"type="button" class="btn">Pridať pacienta</button>
+    <button (click)="addPatient()"  *ngIf="form.value.id === null"type="button" class="button_add">Pridať pacienta</button>
   </div>
   <hr class="my-4">
 </form>
