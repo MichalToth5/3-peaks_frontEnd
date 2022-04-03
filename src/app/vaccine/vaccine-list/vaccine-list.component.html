@@ -1,10 +1,7 @@
-<div class="sidebar">
-  <a class="active" href='/patient'>Pacienti</a>
-  <a href='/vaccine'>Vakcíny</a>
-</div>
+
 <div class="container">
   <h3>Zoznam vakcín:</h3>
-  <a href="/vaccine/add" class="button_add" type="button" style="float: right;">Pridať vakcinu</a>
+  <a href="/admin/vaccine/add" class="button_add" type="button" style="float: right;">Pridať vakcinu</a>
   <div *ngIf="!vaccines || vaccines?.length === 0">
     <div>
       Zoznam vakcín je prázdny.<br>

@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Vaccine} from "../../models/vaccine.model";
 import {FormControl, FormGroup} from "@angular/forms";
+import {VaccineService} from "../../vaccine.service";
 
 @Component({
   selector: 'app-vaccine-form',
@@ -9,19 +10,8 @@ import {FormControl, FormGroup} from "@angular/forms";
 })
 export class VaccineFormComponent {
 
-  @Input()
-  set vaccine(data: Vaccine) {
-    if (data) {
-      this.fillVaccineForm(data);
-    }
-  }
-
-  @Output()
-  addNewVaccine = new EventEmitter<Vaccine>();
-
   form: FormGroup;
-
-  constructor() {
+  constructor(private service:VaccineService) {
     this.createVaccineForm();
   }
 
@@ -48,7 +38,9 @@ export class VaccineFormComponent {
   }
 
   public addVaccine(): void {
-    this.addNewVaccine.emit(this.form.value);
-    this.form.reset();
+    this.service.addVaccine(this.form.value).subscribe(data => {
+      this.form.reset();
+      alert("Udaje boli zapisane do databazy!")
+    });
   }
 }

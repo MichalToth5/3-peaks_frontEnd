@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {Patient} from "../../models/patient.model";
+import {PatientService} from "../../patient.service";
 
 @Component({
   selector: 'app-patient-form',
@@ -9,19 +10,8 @@ import {Patient} from "../../models/patient.model";
 })
 export class PatientFormComponent {
 
-  @Input()
-  set patient(data: Patient) {
-    if (data) {
-      this.fillPatientForm(data);
-    }
-  }
-
-  @Output()
-  addNewPatient = new EventEmitter<Patient>();
-
   form: FormGroup;
-
-  constructor() {
+  constructor(private service:PatientService) {
     this.createPatientForm();
   }
 
@@ -62,7 +52,9 @@ export class PatientFormComponent {
   }
 
   public addPatient(): void {
-    this.addNewPatient.emit(this.form.value);
-    this.form.reset();
+    this.service.addPatient(this.form.value).subscribe(data => {
+      this.form.reset();
+      alert("Udaje boli zapisane do databazy!")
+    })
   }
 }

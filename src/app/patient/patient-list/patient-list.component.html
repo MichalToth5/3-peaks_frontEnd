@@ -1,10 +1,6 @@
-<div class="sidebar">
-  <a class="active" href='/patient'>Pacienti</a>
-  <a href='/vaccine'>Vakcíny</a>
-</div>
 <div class="container">
   <h3>Zoznam pacientov:</h3>
-  <a href="/patient/add" class="button_add" type="button" style="float: right;">Pridať pacienta</a>
+  <a href="/admin/patient/add" class="button_add" type="button" style="float: right;">Pridať pacienta</a>
   <div *ngIf="!patients || patients?.length === 0">
     <div>
       Zoznam pacientov je prázdny.
