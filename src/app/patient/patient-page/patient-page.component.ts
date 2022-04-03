@@ -22,4 +22,5 @@ export class PatientPageComponent {
   addPatient(patient: Patient): void {
     this.service.addPatient(patient).subscribe(data => this.refreshList())
   }
+
 }
