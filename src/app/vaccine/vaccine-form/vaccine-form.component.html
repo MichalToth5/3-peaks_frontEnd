@@ -1,39 +1,48 @@
-<div class="jumbotron text-center" style="background-color: white">
-  <h1>Vakcíny</h1>
-  <hr class="my-4">
-</div>
-<h1 class="text-center">Pridanie novej vakcíny</h1><br>
-<form [formGroup]="form">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label>Názov:</label>
-          <input class="form-control" formControlName="name" >
-        </div>
-        <div class="form-group">
-          <label>Typ:</label>
-          <input class="form-control" formControlName="type" >
-        </div>
-        <div class="form-group">
-          <label>Výrobca:</label>
-          <input class="form-control" formControlName="manufacturer">
-        </div>
-        <div class="form-group">
-          <label>Podanie druhej dávky(dni):</label>
-          <input class="form-control" formControlName="nextShotInDays">
-        </div>
-        <div class="form-group">
-          <label>Minimálny vek:</label>
-          <input class="form-control" formControlName="minAge">
-        </div>
-        <div class="form-group">
-          <label>Maximálny vek:</label>
-          <input class="form-control" formControlName="maxAge" >
+<div class="container">
+  <div class="jumbotron text-center" style="background-color: white">
+    <h1>Vakcíny</h1>
+    <hr class="my-4">
+  </div>
+  <h1 *ngIf="id == null" class="text-center">Pridanie novej vakcíny</h1>
+  <h1 *ngIf="id != null" class="text-center">Upravenie vakcíny</h1>
+  <br>
+
+  <form [formGroup]="form">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>Názov:</label>
+            <input class="form-control" formControlName="name" >
+          </div>
+          <div class="form-group">
+            <label>Typ:</label>
+            <input class="form-control" formControlName="type" >
+          </div>
+          <div class="form-group">
+            <label>Výrobca:</label>
+            <input class="form-control" formControlName="manufacturer">
+          </div>
+          <div class="form-group">
+            <label>Podanie druhej dávky(dni):</label>
+            <input class="form-control" formControlName="nextShotInDays">
+          </div>
+          <div class="form-group">
+            <label>Minimálny vek:</label>
+            <input class="form-control" formControlName="minAge">
+          </div>
+          <div class="form-group">
+            <label>Maximálny vek:</label>
+            <input class="form-control" formControlName="maxAge" >
+          </div>
         </div>
       </div>
+      <div class="vaccine-form-button-group"></div>
+      <button (click)="addVaccine()" *ngIf="form.value.id === null" type="button" class="vaccine-form-button">Pridať vakcínu</button>
+      <button (click)="updateVaccine()" *ngIf="form.value.id != null" type="button" class="vaccine-form-button">Update vakcíny</button>
     </div>
-    <button (click)="addVaccine()" *ngIf="form.value.id === null" type="button" class="button_add">Pridať vakcínu</button>
-  </div>
-  <hr class="my-4">
-</form>
+    <hr class="my-4">
+  </form>
+</div>
+
+

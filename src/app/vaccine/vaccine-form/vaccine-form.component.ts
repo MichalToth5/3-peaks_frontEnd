@@ -1,18 +1,27 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Vaccine} from "../../models/vaccine.model";
 import {FormControl, FormGroup} from "@angular/forms";
 import {VaccineService} from "../../services/vaccine.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-vaccine-form',
   templateUrl: './vaccine-form.component.html',
   styleUrls: ['./vaccine-form.component.css']
 })
-export class VaccineFormComponent {
-
+export class VaccineFormComponent implements OnInit{
+  id:string;
   form: FormGroup;
-  constructor(private service:VaccineService) {
+  constructor(private service:VaccineService, private router:ActivatedRoute) {
     this.createVaccineForm();
+  }
+  ngOnInit():void{
+    this.id = this.router.snapshot.paramMap.get('id');
+    if(this.id != null){
+      this.service.getVaccineById(parseInt(this.id)).subscribe(data => {
+        this.form.patchValue(data);
+      })
+    }
   }
 
   private createVaccineForm(): void {
@@ -27,20 +36,16 @@ export class VaccineFormComponent {
     });
   }
 
-  private fillVaccineForm(vaccine: Vaccine): void {
-    this.form.controls['id'].setValue(vaccine.id);
-    this.form.controls['name'].setValue(vaccine.name);
-    this.form.controls['type'].setValue(vaccine.type);
-    this.form.controls['manufacturer'].setValue(vaccine.manufacturer);
-    this.form.controls['nextShotInDays'].setValue(vaccine.nextShotInDays);
-    this.form.controls['minAge'].setValue(vaccine.minAge);
-    this.form.controls['maxAge'].setValue(vaccine.maxAge);
-  }
-
   public addVaccine(): void {
     this.service.addVaccine(this.form.value).subscribe(data => {
       this.form.reset();
       alert("Udaje boli zapisane do databazy!")
     });
+  }
+
+  public updateVaccine():void{
+    this.service.updateVaccineById(parseInt(this.id), this.form.value).subscribe(data => {
+      alert("Udaje boli uspesne zmenene!")
+    })
   }
 }

@@ -18,5 +18,7 @@ export class PatientListComponent implements OnInit{
       this.patients = data;
     })
   }
-
+  displayPatient(patientId){
+    this.router.navigate(['/admin/patient/add', {id:patientId}]);
+  }
 }

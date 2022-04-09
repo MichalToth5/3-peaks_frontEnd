@@ -13,6 +13,7 @@ import {AppRoutingModule} from "./app-routing.module";
 
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

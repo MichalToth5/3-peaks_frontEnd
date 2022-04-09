@@ -1,19 +1,26 @@
-.button_add {
-  border: 1px solid black;
-  border-radius: 12px;
-  color: white;
-  padding: 15px 32px;
+.patient-form-button-group{
   text-align: center;
+}
+.patient-form-button {
+  border: none;
+  border-color: #fdebdf;
+  border-radius: 12px;
+  padding: 15px 32px;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-  background-color: #feece0;
+  background-color: #fdebdf;
   color: black;
 }
+.patient-form-button:hover {
+  background-color: #fac099;
+}
 .my-4{
-  display: block; height: 1px;
-  border: 0; border-top: 1px solid #f29900;
-  margin: 1em 0; padding: 0;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #fac099;
+  margin: 1em 0;
+  padding: 0;
 }

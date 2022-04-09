@@ -1,14 +1,25 @@
 <div class="container">
   <h3>Zoznam pacientov:</h3>
-  <a href="/admin/patient/add" class="button_add" type="button" style="float: right;">Pridať pacienta</a>
+  <div class="d-flex justify-content-between">
+    <div class="search-bar">
+      <div class="input-group rounded">
+        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        <span class="input-group-text border-0" id="search-addon">
+        <i class="bi bi-search"></i>
+      </span>
+      </div>
+    </div>
+    <a href="/admin/patient/add" class="patient-list-button" type="button" style="float: right;">Pridať pacienta</a>
+  </div>
   <div *ngIf="!patients || patients?.length === 0">
     <div>
       Zoznam pacientov je prázdny.
     </div>
   </div>
   <div>
-    <table class="table">
-      <thead>
+    <div class="patient-list">
+      <table class="table">
+        <thead>
         <tr>
           <th scope="col">Meno</th>
           <th scope="col">Rodné číslo</th>
@@ -17,19 +28,21 @@
           <th scope="col">Počet dávok</th>
           <th scope="col">Plná zaočkovanosť od</th>
         </tr>
-      </thead>
-      <!--TODO doplnenie info do tabulky o pocte davok a plnej zaockovanosti, prepojenie na vaccineShot -->
-      <tbody>
-      <tr *ngFor="let p of patients">
-        <td>{{p.firstName +' ' + p.lastName}}</td>
-        <td>{{p.idNumber}}</td>
-        <td>{{p.dateOfBirth}}</td>
-        <td>{{p.city + ', ' + p.street}}</td>
-        <td>0</td>
-        <td>0</td>
-      </tr>
-      </tbody>
-    </table>
+        </thead>
+        <!--TODO doplnenie info do tabulky o pocte davok a plnej zaockovanosti, prepojenie na vaccineShot -->
+        <tbody>
+        <tr *ngFor="let p of patients" (click)="displayPatient(p.id)">
+          <td>{{p.firstName +' ' + p.lastName}}</td>
+          <td>{{p.idNumber}}</td>
+          <td>{{p.dateOfBirth}}</td>
+          <td>{{p.city + ', ' + p.street}}</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
   <hr class="my-4">
 </div>

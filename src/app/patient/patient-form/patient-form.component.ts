@@ -1,18 +1,27 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {Patient} from "../../models/patient.model";
 import {PatientService} from "../../services/patient.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-patient-form',
   templateUrl: './patient-form.component.html',
   styleUrls: ['./patient-form.component.css']
 })
-export class PatientFormComponent {
-
+export class PatientFormComponent implements OnInit{
+  id:string;
   form: FormGroup;
-  constructor(private service:PatientService) {
+  constructor(private service:PatientService, private route:ActivatedRoute) {
     this.createPatientForm();
+  }
+  ngOnInit(): void {
+   this.id = this.route.snapshot.paramMap.get('id');
+   if(this.id != null){
+     this.service.getPatientById(parseInt(this.id)).subscribe(data => {
+       this.form.patchValue(data);
+     });
+   }
   }
 
   private createPatientForm(): void {
@@ -25,7 +34,7 @@ export class PatientFormComponent {
       sex: new FormControl(null),
       telephoneNumber: new FormControl(null),
       emailAddrs: new FormControl(null),
-      insuranceCmp: new FormControl(null),
+      insurance: new FormControl(null),
       street: new FormControl(null),
       houseNumber: new FormControl(null),
       postCode: new FormControl(null),
@@ -34,27 +43,15 @@ export class PatientFormComponent {
     });
   }
 
-  private fillPatientForm(patient: Patient): void {
-    this.form.controls['id'].setValue(patient.id);
-    this.form.controls['firstName'].setValue(patient.firstName);
-    this.form.controls['lastName'].setValue(patient.lastName);
-    this.form.controls['idNumber'].setValue(patient.idNumber);
-    this.form.controls['dateOfBirth'].setValue(patient.dateOfBirth);
-    this.form.controls['sex'].setValue(patient.sex);
-    this.form.controls['telephoneNumber'].setValue(patient.telephoneNumber);
-    this.form.controls['emailAddrs'].setValue(patient.emailAddrs);
-    this.form.controls['insuranceCmp'].setValue(patient.insuranceCmp);
-    this.form.controls['street'].setValue(patient.street);
-    this.form.controls['houseNumber'].setValue(patient.houseNumber);
-    this.form.controls['postCode'].setValue(patient.postCode);
-    this.form.controls['city'].setValue(patient.city);
-    this.form.controls['country'].setValue(patient.country);
-  }
-
   public addPatient(): void {
     this.service.addPatient(this.form.value).subscribe(data => {
       this.form.reset();
       alert("Udaje boli zapisane do databazy!")
+    })
+  }
+  public updatePatient(): void {
+    this.service.updatePatientById(parseInt(this.id), this.form.value).subscribe(data => {
+      alert("Udaje boli uspesne zmenene!")
     })
   }
 }

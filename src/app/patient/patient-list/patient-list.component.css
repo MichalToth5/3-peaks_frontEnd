@@ -1,3 +1,30 @@
+.input-group rounded{
+  margin-top: 10px;
+}
+.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback){
+  margin-top: 10px;
+}
+.form-control{
+  margin-top: 10px;
+}
+.patient-list td{
+  cursor: pointer;
+}
+.patient-list-button{
+  border: none;
+  border-color: #fdebdf;
+  border-radius: 12px;
+  padding: 15px 32px;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: #fdebdf;
+  color: black;
+}
+.patient-list-button:hover{
+  background-color: #fac099;
+}
 div.content {
   margin-left: 200px;
   padding: 1px 16px;
@@ -20,22 +47,9 @@ div.content {
     float: none;
   }
 }
-.button_add {
-  border: 1px solid black;
-  border-radius: 12px;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-    background-color: #feece0;
-    color: black;
-  }
+
 .my-4{
   display: block; height: 1px;
-  border: 0; border-top: 1px solid #f29900;
+  border: 0; border-top: 1px solid #fac099;
   margin: 1em 0; padding: 0;
 }

@@ -1,29 +1,43 @@
 
 <div class="container">
   <h3>Zoznam vakcín:</h3>
-  <a href="/admin/vaccine/add" class="button_add" type="button" style="float: right;">Pridať vakcinu</a>
+  <div class="d-flex justify-content-between">
+    <div class="search-bar">
+      <div class="input-group rounded">
+        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        <span class="input-group-text border-0" id="search-addon">
+        <i class="bi bi-search"></i>
+      </span>
+      </div>
+    </div>
+    <a href="/admin/vaccine/add" class="vaccine-list-button" type="button" style="float: right;">Pridať vakcinu</a>
+  </div>
+
+
   <div *ngIf="!vaccines || vaccines?.length === 0">
     <div>
       Zoznam vakcín je prázdny.<br>
     </div>
   </div>
   <div>
-    <table class="table">
-      <thead>
+    <div class="vaccine-list">
+      <table class="table">
+        <thead>
         <tr>
           <th scope="col">Názov</th>
           <th scope="col">Typ</th>
           <th scope="col">Výrobca</th>
         </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let v of vaccines">
-        <td>{{v.name}}</td>
-        <td>{{v.type}}</td>
-        <td>{{v.manufacturer}}</td>
-      </tr>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+        <tr *ngFor="let v of vaccines" (click)="displayVaccine(v.id)">
+          <td>{{v.name}}</td>
+          <td>{{v.type}}</td>
+          <td>{{v.manufacturer}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
   <hr class="my-4">
 </div>
