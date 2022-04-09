@@ -1,5 +1,14 @@
-<div class="sidebar">
-  <a routerLink="/admin/patient" routerLinkActive="active">Pacienti</a>
-  <a routerLink="/admin/vaccine" routerLinkActive="active">Vakcíny</a>
+<div class="container-fluid">
+<header class="header">
+  <a href="" class="logo">Tri Peaks</a>
+  <input class="menu-btn" type="checkbox" id="menu-btn" />
+  <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+  <ul class="menu">
+    <li><a routerLink="/admin/patient" routerLinkActive="active">Pacienti</a></li>
+    <li><a routerLink="/admin/vaccine" routerLinkActive="active">Vakcíny</a></li>
+  </ul>
+</header>
 </div>
+<br><br><br>
 <router-outlet></router-outlet>
+
