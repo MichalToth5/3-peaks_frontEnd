@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {Patient} from "../../models/patient.model";
 import {PatientService} from "../../services/patient.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-patient-form',
@@ -10,9 +10,10 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./patient-form.component.css']
 })
 export class PatientFormComponent implements OnInit{
+  patient:Patient;
   id:string;
   form: FormGroup;
-  constructor(private service:PatientService, private route:ActivatedRoute) {
+  constructor(private service:PatientService, private route:ActivatedRoute, private router: Router) {
     this.createPatientForm();
   }
   ngOnInit(): void {
@@ -53,5 +54,13 @@ export class PatientFormComponent implements OnInit{
     this.service.updatePatientById(parseInt(this.id), this.form.value).subscribe(data => {
       alert("Udaje boli uspesne zmenene!")
     })
+  }
+
+  public deletePatient(): void {
+    this.service.deletePatientById(parseInt(this.id)).subscribe(data =>{
+      this.router.navigate(["/admin/patient"]);
+      alert("Odstranili ste pacienta: " + this.form.value.idNumber+ ", " + this.form.value.firstName +" "+ this.form.value.lastName)
+    })
+
   }
 }

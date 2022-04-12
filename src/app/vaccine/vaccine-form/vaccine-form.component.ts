@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Vaccine} from "../../models/vaccine.model";
 import {FormControl, FormGroup} from "@angular/forms";
 import {VaccineService} from "../../services/vaccine.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-vaccine-form',
@@ -12,11 +12,11 @@ import {ActivatedRoute} from "@angular/router";
 export class VaccineFormComponent implements OnInit{
   id:string;
   form: FormGroup;
-  constructor(private service:VaccineService, private router:ActivatedRoute) {
+  constructor(private service:VaccineService, private route:ActivatedRoute, private router: Router) {
     this.createVaccineForm();
   }
   ngOnInit():void{
-    this.id = this.router.snapshot.paramMap.get('id');
+    this.id = this.route.snapshot.paramMap.get('id');
     if(this.id != null){
       this.service.getVaccineById(parseInt(this.id)).subscribe(data => {
         this.form.patchValue(data);
@@ -46,6 +46,13 @@ export class VaccineFormComponent implements OnInit{
   public updateVaccine():void{
     this.service.updateVaccineById(parseInt(this.id), this.form.value).subscribe(data => {
       alert("Udaje boli uspesne zmenene!")
+    })
+  }
+
+  public deleteVaccine():void {
+    this.service.deleteVaccineById(parseInt(this.id)).subscribe(data =>{
+      this.router.navigate(["/admin/vaccine"]);
+      alert(("Odstranili ste vakcinu: " + this.form.value.name ))
     })
   }
 }

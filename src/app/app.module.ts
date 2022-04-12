@@ -8,12 +8,13 @@ import { PatientListComponent } from './patient/patient-list/patient-list.compon
 import { VaccineFormComponent } from './vaccine/vaccine-form/vaccine-form.component';
 import { VaccineListComponent } from './vaccine/vaccine-list/vaccine-list.component';
 
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AppRoutingModule} from "./app-routing.module";
 
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {Ng2SearchPipeModule} from "ng2-search-filter";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    Ng2SearchPipeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

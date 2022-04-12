@@ -26,4 +26,12 @@ export class PatientService {
   deletePatientById(patientId:number) : Observable<void>{
     return this.http.delete<void>(`${this.apiUrl}/${patientId}`);
   }
+  searchPatient(search:string) : Observable<Patient[]>{
+    return this.http.get<Patient[]>(`${this.apiUrl}/search`, {
+      params: {
+        search: search
+      }
+    });
+
+  }
 }

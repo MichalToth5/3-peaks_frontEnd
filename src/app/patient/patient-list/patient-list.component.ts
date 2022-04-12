@@ -11,6 +11,7 @@ import {PatientService} from "../../services/patient.service";
 export class PatientListComponent implements OnInit{
 
   patients: Patient[] = [];
+  searchAttr: string;
   constructor(private router:Router, private service:PatientService) { }
 
   ngOnInit(): void {
@@ -20,5 +21,11 @@ export class PatientListComponent implements OnInit{
   }
   displayPatient(patientId){
     this.router.navigate(['/admin/patient/add', {id:patientId}]);
+  }
+
+  search() {
+    this.service.searchPatient(this.searchAttr ).subscribe(data => {
+      this.patients = data;
+    })
   }
 }
