@@ -34,7 +34,8 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
     HttpClientModule,
     NgbModule,
     Ng2SearchPipeModule,
-    FormsModule
+    FormsModule,
+    //NgbModal
   ],
   providers: [],
   bootstrap: [AppComponent]

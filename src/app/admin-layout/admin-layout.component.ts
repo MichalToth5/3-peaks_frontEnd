@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {NcziService} from "../services/nczi.service";
+import {Nczi} from "../models/nczi.model";
+
 
 @Component({
   selector: 'app-admin-layout',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLayoutComponent implements OnInit {
 
-  constructor() { }
+  vaccinations: Nczi;
+  constructor(private service:NcziService) { }
 
   ngOnInit(): void {
+    this.service.getVaccinations().subscribe(data =>{
+      this.vaccinations = data;
+    })
   }
 
 }

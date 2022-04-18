@@ -1,28 +1,35 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {Patient} from "../../models/patient.model";
 import {PatientService} from "../../services/patient.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-patient-form',
   templateUrl: './patient-form.component.html',
   styleUrls: ['./patient-form.component.css']
 })
-export class PatientFormComponent implements OnInit{
+export class PatientFormComponent implements OnInit, OnDestroy {
   patient:Patient;
   id:string;
   form: FormGroup;
+
+  private subscription: Subscription = new Subscription();
+
   constructor(private service:PatientService, private route:ActivatedRoute, private router: Router) {
     this.createPatientForm();
   }
   ngOnInit(): void {
    this.id = this.route.snapshot.paramMap.get('id');
    if(this.id != null){
-     this.service.getPatientById(parseInt(this.id)).subscribe(data => {
+     this.subscription.add(this.service.getPatientById(parseInt(this.id)).subscribe(data => {
        this.form.patchValue(data);
-     });
+     }));
    }
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   private createPatientForm(): void {
