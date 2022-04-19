@@ -39,20 +39,20 @@ export class VaccineFormComponent implements OnInit{
   public addVaccine(): void {
     this.service.addVaccine(this.form.value).subscribe(data => {
       this.form.reset();
-      alert("Udaje boli zapisane do databazy!")
+      alert("Údaje boli úspešne zapísané do databázy!")
     });
   }
 
   public updateVaccine():void{
     this.service.updateVaccineById(parseInt(this.id), this.form.value).subscribe(data => {
-      alert("Udaje boli uspesne zmenene!")
+      alert("Údaje boli úspešne zmenené!")
     })
   }
 
   public deleteVaccine():void {
     this.service.deleteVaccineById(parseInt(this.id)).subscribe(data =>{
       this.router.navigate(["/admin/vaccine"]);
-      alert(("Odstranili ste vakcinu: " + this.form.value.name ))
+      alert(("Odstránili ste vakcínu: " + this.form.value.name ))
     })
   }
 }

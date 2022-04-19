@@ -54,19 +54,19 @@ export class PatientFormComponent implements OnInit, OnDestroy {
   public addPatient(): void {
     this.service.addPatient(this.form.value).subscribe(data => {
       this.form.reset();
-      alert("Udaje boli zapisane do databazy!")
+      alert("Údaje boli úspešne zapísané do databázy!")
     })
   }
   public updatePatient(): void {
     this.service.updatePatientById(parseInt(this.id), this.form.value).subscribe(data => {
-      alert("Udaje boli uspesne zmenene!")
+      alert("Údaje boli úspešne zmenené!")
     })
   }
 
   public deletePatient(): void {
     this.service.deletePatientById(parseInt(this.id)).subscribe(data =>{
       this.router.navigate(["/admin/patient"]);
-      alert("Odstranili ste pacienta: " + this.form.value.idNumber+ ", " + this.form.value.firstName +" "+ this.form.value.lastName)
+      alert("Odstránili ste pacienta: " + this.form.value.idNumber+ ", " + this.form.value.firstName +" "+ this.form.value.lastName)
     })
 
   }

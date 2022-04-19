@@ -13,20 +13,45 @@
 <router-outlet></router-outlet>
 
 <!--TODO FOOTER-->
-<div class="container">
-<footer class="pt-4 my-md-5 pt-md-5 border-top">
-  <div class="row">
-    <div class="col-6 col-md">
-
-
-      <h5><img class="mb-2" src="/assets/syringe.png" alt="" width="30" height="30">Zaockovania za den</h5>
-      <span class="nczi-vaccine-num" *ngIf="vaccinations != null && vaccinations.sum != null">
+<footer>
+<div class="container-fluid padding">
+  <div class="row text-center">
+    <div class="col-md-4">
+      <hr class="hrfooter">
+      <h5><img class="mb-2" src="/assets/syringe.png" alt="" width="30" height="30">Zaočkovania za deň</h5>
+      <hr class="hrfooter">
+      <p class="nczi-vaccine-num" *ngIf="vaccinations != null && vaccinations.sum != null">
           {{vaccinations.sum}}
-      </span>
+      </p>
+      <hr class="hrfooter">
+      <h5><img class="mb-2" src="/assets/syringe.png" alt="" width="30" height="30">Počet zaočkovaných na Slovensku</h5>
+      <hr class="hrfooter">
+      <p>000</p>
     </div>
-    <div class="col-6 col-md">
-      <h5>Pacienti v nemocniciach</h5>
+    <div class="col-md-4">
+      <hr class="hrfooter">
+      <h5><img class="mb-2" src="/assets/patient.png" alt="" width="44" height="30">Pacienti v nemocniciach</h5>
+      <hr class="hrfooter">
+      <p>000</p>
+      <hr class="hrfooter">
+      <h5><img class="mb-2" src="/assets/sick.png" alt="" width="34" height="30">Počet nakazených za deň</h5>
+      <hr class="hrfooter">
+      <p>000</p>
+    </div>
+    <div class="col-md-4">
+      <hr class="hrfooter">
+      <h5><img class="mb-2" src="/assets/3peaks.png" alt="" width="34" height="30"><b>Tri Peaks</b></h5>
+      <hr class="hrfooter">
+      <p>Tajovského 40</p>
+      <p>974 01 Banská Bystrica</p>
+      <p>github.com/MichalToth5/3-peaks_frontEnd</p>
+      <p>github.com/MichalToth5/3-peaks_backEnd</p>
+    </div>
+    <div class="col-12">
+      <hr class="hrfooter2">
+      <h5>&copy; tripeaks.com</h5>
     </div>
   </div>
-</footer>
 </div>
+</footer>
+
