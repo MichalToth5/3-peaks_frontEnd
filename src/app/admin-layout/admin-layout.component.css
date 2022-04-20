@@ -147,6 +147,9 @@ a {
 .nczi-vaccine-num{
   font-weight: bold;
 }
+.nczi-patient-num{
+  font-weight: bold;
+}
 footer {
   background-color: #fac099;
   color: #000000;
