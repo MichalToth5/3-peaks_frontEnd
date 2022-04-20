@@ -1,4 +1,3 @@
-<div class="admin">
 <header class="header">
   <a routerLink="/admin/patient" class="logo">Tri Peaks</a>
   <input class="menu-btn" type="checkbox" id="menu-btn" />
@@ -8,12 +7,12 @@
     <li><a routerLink="/admin/vaccine" routerLinkActive="active">Vakcíny</a></li>
   </ul>
 </header>
+<div class="content">
+  <router-outlet></router-outlet>
 </div>
-<br><br><br>
-<router-outlet></router-outlet>
 
 <!--TODO FOOTER-->
-<footer class="fixed-bottom">
+<footer class=" admin-footer ">
 <div class="container-fluid padding">
   <div class="row text-center">
     <div class="col-md-4">

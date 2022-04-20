@@ -13,7 +13,7 @@ a {
 .header {
   background-color: #fdebdf;
   box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
-  position: fixed;
+  min-height: 68px;
   width: 100%;
   z-index: 3;
 }
@@ -150,10 +150,13 @@ a {
 .nczi-patient-num{
   font-weight: bold;
 }
-footer {
+.admin-footer {
   background-color: #fac099;
   color: #000000;
   padding-top: 2rem;
+  bottom: 0;
+  width: 100%;
+  height: 357px;
 }
 hr.hrfooter {
   border-top: 1px solid #000000;
@@ -168,3 +171,6 @@ hr.hrfooter2 {
   margin-bottom: 1rem;
 }
 
+.content {
+  min-height: calc(100% - 68px - 358px);
+}
