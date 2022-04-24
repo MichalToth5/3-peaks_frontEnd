@@ -6,6 +6,7 @@ import {PatientListComponent} from "./patient/patient-list/patient-list.componen
 import {VaccineFormComponent} from "./vaccine/vaccine-form/vaccine-form.component";
 import {VaccineListComponent} from "./vaccine/vaccine-list/vaccine-list.component";
 import {AdminLayoutComponent} from "./admin-layout/admin-layout.component";
+import {PatientShotFormComponent} from "./patient/patient-shot-form/patient-shot-form.component";
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
       {
         path:"patient/add",
         component: PatientFormComponent
+      },
+      {
+        path:"patient/shot/add",
+        component: PatientShotFormComponent
       },
       {
         path: "vaccine",

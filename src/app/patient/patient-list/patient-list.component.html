@@ -37,8 +37,12 @@
           <td>{{p.idNumber}}</td>
           <td>{{p.dateOfBirth}}</td>
           <td>{{p.city + ', ' + p.street}}</td>
-          <td>0</td>
-          <td>0</td>
+          <td>
+            {{p.vaccineShots.length}}
+            <span *ngIf="p.vaccineShots.length === 2" class="badge alert-danger">Plna zaockovanost</span>
+            <span *ngIf="p.vaccineShots.length === 3" class="badge alert-success">Booster</span>
+          </td>
+          <td>{{p.fullVaccinationSince}}</td>
         </tr>
         </tbody>
       </table>

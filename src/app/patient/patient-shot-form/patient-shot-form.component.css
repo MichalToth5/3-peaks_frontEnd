@@ -1,6 +1,3 @@
-.patient-form-button-group{
-  text-align: center;
-}
 .patient-form-button {
   border: none;
   border-color: #fdebdf;
@@ -16,12 +13,3 @@
 .patient-form-button:hover {
   background-color: #fac099;
 }
-.my-4{
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #fac099;
-  margin: 1em 0;
-  padding: 0;
-}
-

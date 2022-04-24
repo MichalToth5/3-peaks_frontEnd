@@ -1,3 +1,5 @@
+import {VaccineShot} from "./vaccine-shot.model";
+
 export class Patient {
   id: number;
   firstName: string;
@@ -14,4 +16,6 @@ export class Patient {
   postCode: string;
   city: string;
   country: string;
+  vaccineShots: VaccineShot[];
+  fullVaccinationSince: string;
 }

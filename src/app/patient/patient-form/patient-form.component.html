@@ -32,35 +32,37 @@
           </div>
           <div class="form-group">
             <label>Pohlavie:</label>
-            <input class="form-control" formControlName="sex"><br>
+            <select class="form-select" formControlName="sex">
+              <option>Žena</option>
+              <option>Muž</option>
+              <option>Iné</option>
+            </select>
           </div>
-          <!--        <div class="form-group">-->
-          <!--          <label>Pohlavie:</label>-->
-          <!--          &lt;!&ndash;TODO angular get value from select&ndash;&gt;-->
-          <!--          <select class="form-control">-->
-          <!--            <option selected>Vyberte pohlavie</option>-->
-          <!--            <option>Žena</option>-->
-          <!--            <option>Muž</option>-->
-          <!--            <option>Iné</option>-->
-          <!--          </select>-->
-          <!--        </div>-->
         </div>
-
         <div class="col-sm-4">
           <h3>Kontaktné údaje</h3>
           <hr class="my-4">
           <div>
+            <label>Telefónne číslo:</label>
             <div class="form-group">
-              <label>Telefónne číslo:</label>
-              <input class="form-control" formControlName="telephoneNumber" ><br>
-            </div>
-            <div >
+              <div class="input-group sm-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">+421</span>
+                </div>
+                <input type="text" class="form-control" formControlName="telephoneNumber"  aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+            </div> <br>
+            <div>
               <label>Email:</label>
               <input class="form-control" formControlName="emailAddrs" ><br>
             </div>
             <div class="form-group">
               <label>Zdravotná poisťovňa:</label>
-              <input class="form-control" formControlName="insurance" ><br><br>
+              <select class="form-select" formControlName="insurance">
+                <option>Dôvera</option>
+                <option>Union</option>
+                <option>Všeobecná Zdravotná poisťovňa</option>
+              </select>
             </div>
           </div>
         </div>
@@ -96,8 +98,33 @@
         <button (click)="addPatient()"  *ngIf="form.value.id === null" type="button" class="patient-form-button">Pridať pacienta</button>
       </div>
     </div>
-    <hr class="my-4">
   </form>
+  <div class="table-vaccineShots" *ngIf="form.value.id != null">
+    <hr class="my-4">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Dávka</th>
+          <th>Typ vakcíny</th>
+          <th>Šarža</th>
+          <th>Doktor</th>
+          <th>Dátum</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let shot of vaccineShots; let i = index" (click)="editVaccineShot(shot.id)">
+          <td>{{i + 1}}.</td>
+          <td>{{shot.vaccine.manufacturer}}, {{shot.vaccine.name}}, {{shot.vaccine.type}}</td>
+          <td>{{shot.batch}}</td>
+          <td>{{shot.doctor}}</td>
+          <td>{{shot.dateOfShot}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="patient-form-button-group">
+      <button (click)="addVaccineShot()" type="button" class="patient-form-button">Pridať vakcínu</button>
+    </div>
+  </div>
 </div>
 
 <!--TODO modal window pri odstranovani-->

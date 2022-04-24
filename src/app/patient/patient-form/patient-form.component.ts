@@ -4,6 +4,7 @@ import {Patient} from "../../models/patient.model";
 import {PatientService} from "../../services/patient.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
+import {VaccineShot} from "../../models/vaccine-shot.model";
 
 @Component({
   selector: 'app-patient-form',
@@ -14,6 +15,7 @@ export class PatientFormComponent implements OnInit, OnDestroy {
   patient:Patient;
   id:string;
   form: FormGroup;
+  vaccineShots: VaccineShot[];
 
   private subscription: Subscription = new Subscription();
 
@@ -24,6 +26,7 @@ export class PatientFormComponent implements OnInit, OnDestroy {
    this.id = this.route.snapshot.paramMap.get('id');
    if(this.id != null){
      this.subscription.add(this.service.getPatientById(parseInt(this.id)).subscribe(data => {
+       this.vaccineShots = data.vaccineShots;
        this.form.patchValue(data);
      }));
    }
@@ -53,8 +56,8 @@ export class PatientFormComponent implements OnInit, OnDestroy {
 
   public addPatient(): void {
     this.service.addPatient(this.form.value).subscribe(data => {
-      this.form.reset();
-      alert("Údaje boli úspešne zapísané do databázy!")
+      alert("Údaje boli úspešne zapísané do databázy!");
+      this.router.navigate(['/admin/patient/add', {id:data.id}]);
     })
   }
   public updatePatient(): void {
@@ -68,6 +71,15 @@ export class PatientFormComponent implements OnInit, OnDestroy {
       this.router.navigate(["/admin/patient"]);
       alert("Odstránili ste pacienta: " + this.form.value.idNumber+ ", " + this.form.value.firstName +" "+ this.form.value.lastName)
     })
+
+  }
+
+  public addVaccineShot(): void {
+    this.router.navigate(['/admin/patient/shot/add', {patientId:this.id}]);
+  }
+
+  public editVaccineShot(id: number): void {
+    this.router.navigate(['/admin/patient/shot/add', {id:id,patientId:this.id}]);
 
   }
 }

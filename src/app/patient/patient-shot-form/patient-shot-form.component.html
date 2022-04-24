@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="jumbotron text-center" style="background-color: white">
+    <h1>Pacienti - Záznamy očkovania</h1>
+    <hr class="my-4">
+  </div>
+  <h1 *ngIf="id == null" class="text-center">Pridanie nového očkovania pre pacienta {{this.patient != null ? this.patient.firstName + " " + this.patient.lastName : "..."}}</h1>
+  <br>
+  <form *ngIf="patient != null" [formGroup]="form">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label>Typ vakcíny:</label>
+          <select class="form-select" formControlName="idVaccine">
+            <option *ngFor="let vaccine of vaccines" [ngValue]="vaccine.id">{{vaccine.manufacturer}}, {{vaccine.name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Šarža:</label>
+          <input class="form-control" formControlName="batch"/>
+        </div>
+        <div class="form-group">
+          <label>Doktor:</label>
+          <input class="form-control" formControlName="doctor"/>
+        </div>
+        <div class="form-group">
+          <label>Dátum:</label>
+          <input class="form-control" formControlName="dateOfShot"/>
+        </div>
+        <button (click)="addVacineShot()" *ngIf="id == null" type="button" class="patient-form-button">Pridanie vakcíny</button>
+        <button (click)="updateVaccineShot()" *ngIf="id != null" type="button" class="patient-form-button">Update vakcíny</button>
+        <button (click)="deleteVaccineShot()" *ngIf="id != null" type="button" class="patient-form-button">Zmazanie vakcíny</button><br/>
+        <button (click)="backButton()" type="button" class="patient-form-button">Naspäť</button>
+      </div>
+    </div>
+  </form>
+</div>

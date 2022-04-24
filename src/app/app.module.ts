@@ -15,6 +15,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {Ng2SearchPipeModule} from "ng2-search-filter";
+import { PatientShotFormComponent } from './patient/patient-shot-form/patient-shot-form.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
     VaccineFormComponent,
     VaccineListComponent,
     AdminLayoutComponent,
+    PatientShotFormComponent,
 
 
   ],
