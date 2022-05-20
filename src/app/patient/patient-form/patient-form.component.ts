@@ -5,7 +5,7 @@ import {PatientService} from "../../services/patient.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 import {VaccineShot} from "../../models/vaccine-shot.model";
-import Swal from 'sweetalert2'
+import Swal from  'sweetalert2'
 
 @Component({
   selector: 'app-patient-form',
@@ -68,14 +68,24 @@ export class PatientFormComponent implements OnInit, OnDestroy {
   }
   public updatePatient(): void {
     this.service.updatePatientById(parseInt(this.id), this.form.value).subscribe(data => {
-      alert("Údaje boli úspešne zmenené!")
+      Swal.fire({
+        icon: 'success',
+        title: 'Údaje boli úspešne zmenené',
+        showConfirmButton: false,
+        timer: 3000
+      })
     })
   }
 
   public deletePatient(): void {
     this.service.deletePatientById(parseInt(this.id)).subscribe(data =>{
       this.router.navigate(["/admin/patient"]);
-      alert("Odstránili ste pacienta: " + this.form.value.idNumber+ ", " + this.form.value.firstName +" "+ this.form.value.lastName)
+      Swal.fire({
+        icon: 'success',
+        title: "Odstránili ste pacienta: " + this.form.value.idNumber+ ", " + this.form.value.firstName +" "+ this.form.value.lastName,
+        showConfirmButton: false,
+        timer: 3000
+      })
     })
 
   }
