@@ -3,6 +3,7 @@ import {Vaccine} from "../../models/vaccine.model";
 import {FormControl, FormGroup} from "@angular/forms";
 import {VaccineService} from "../../services/vaccine.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import Swal from  'sweetalert2'
 
 @Component({
   selector: 'app-vaccine-form',
@@ -39,20 +40,35 @@ export class VaccineFormComponent implements OnInit{
   public addVaccine(): void {
     this.service.addVaccine(this.form.value).subscribe(data => {
       this.form.reset();
-      alert("Údaje boli úspešne zapísané do databázy!")
+      Swal.fire({
+        icon: 'success',
+        title: 'Vakcína bola úspešne pridaná!',
+        showConfirmButton: false,
+        timer: 3000
+      })
     });
   }
 
   public updateVaccine():void{
     this.service.updateVaccineById(parseInt(this.id), this.form.value).subscribe(data => {
-      alert("Údaje boli úspešne zmenené!")
+      Swal.fire({
+        icon: 'success',
+        title: 'Údaje boli úspešne zmenené!',
+        showConfirmButton: false,
+        timer: 3000
+      })
     })
   }
 
   public deleteVaccine():void {
     this.service.deleteVaccineById(parseInt(this.id)).subscribe(data =>{
       this.router.navigate(["/admin/vaccine"]);
-      alert(("Odstránili ste vakcínu: " + this.form.value.name ))
+      Swal.fire({
+        icon: 'success',
+        title: "Odstránili ste vakcínu: " + this.form.value.name,
+        showConfirmButton: false,
+        timer: 3000
+      })
     })
   }
 }

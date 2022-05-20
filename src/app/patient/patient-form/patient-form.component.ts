@@ -59,7 +59,7 @@ export class PatientFormComponent implements OnInit, OnDestroy {
     this.service.addPatient(this.form.value).subscribe(data => {
       Swal.fire({
         icon: 'success',
-        title: 'Pacient bol úspešne pridaný',
+        title: 'Pacient bol úspešne pridaný!',
         showConfirmButton: false,
         timer: 3000
       })
@@ -70,7 +70,7 @@ export class PatientFormComponent implements OnInit, OnDestroy {
     this.service.updatePatientById(parseInt(this.id), this.form.value).subscribe(data => {
       Swal.fire({
         icon: 'success',
-        title: 'Údaje boli úspešne zmenené',
+        title: 'Údaje boli úspešne zmenené!',
         showConfirmButton: false,
         timer: 3000
       })
