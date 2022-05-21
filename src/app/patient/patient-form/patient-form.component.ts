@@ -64,8 +64,20 @@ export class PatientFormComponent implements OnInit, OnDestroy {
         timer: 3000
       })
       this.router.navigate(['/admin/patient/add', {id:data.id}]);
-    })
+    }, error => {
+      let message  = ""
+      for (let errorMessage of Object.values(error.error)){
+        message = message + errorMessage + "\n"
+      }
+      Swal.fire({
+        icon: 'warning',
+        title: message,
+        showConfirmButton: false,
+        timer: 3000
+      })
+    });
   }
+
   public updatePatient(): void {
     this.service.updatePatientById(parseInt(this.id), this.form.value).subscribe(data => {
       Swal.fire({
