@@ -7,6 +7,7 @@ import {VaccineService} from "../../services/vaccine.service";
 import {Vaccine} from "../../models/vaccine.model";
 import {FormControl, FormGroup} from "@angular/forms";
 import {VaccineShotService} from "../../services/vaccine-shot.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-patient-shot-form',
@@ -63,12 +64,25 @@ export class PatientShotFormComponent implements OnInit, OnDestroy {
   }
 
   public addVacineShot(): void {
-    this.vaccineShotService.addVaccineShot({
-      ...this.form.value,
-      idPatient: this.patient.id
-    }).subscribe(data => {
-      alert("Údaje boli úspešne zapísané do databázy!");
+    this.vaccineShotService.addVaccineShot({...this.form.value, idPatient: this.patient.id}).subscribe(data => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Zápis o očkovaní bol pridaný!',
+        showConfirmButton: false,
+        timer: 3000
+      })
       this.router.navigate(['/admin/patient/shot/add', {id:data.id,patientId:this.patient.id}]);
+    }, error => {
+      let message  = ""
+      for (let errorMessage of Object.values(error.error)){
+        message = message + errorMessage + "\n"
+      }
+      Swal.fire({
+        icon: 'warning',
+        title: message,
+        showConfirmButton: false,
+        timer: 3000
+      })
     });
   }
 
@@ -77,13 +91,23 @@ export class PatientShotFormComponent implements OnInit, OnDestroy {
       ...this.form.value,
       idPatient: this.patient.id
     }).subscribe(data => {
-      alert("Údaje boli úspešne zmenené!");
+      Swal.fire({
+        icon: 'success',
+        title: 'Zápis o očkovaní bol upravený!',
+        showConfirmButton: false,
+        timer: 3000
+      })
     });
   }
 
   public deleteVaccineShot(): void {
     this.vaccineShotService.deleteVaccineShot(this.id).subscribe(data =>{
-      alert("Odstránili ste záznam očkovania");
+      Swal.fire({
+        icon: 'success',
+        title: 'Zápis o očkovaní bol odstránený!',
+        showConfirmButton: false,
+        timer: 3000
+      })
       this.router.navigate(["/admin/patient/add", {id: this.patient.id}]);
     })
   }
