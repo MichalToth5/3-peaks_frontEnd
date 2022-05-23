@@ -3,173 +3,81 @@ body {
   font-family: Helvetica, sans-serif;
   background-color: #f4f4f4;
 }
+/*---*//*NAVBAR*//*---*/
 
-a {
-  color: #000;
-}
-
-/* header */
-
-.header {
+/*bg color for navbar*/
+/*.nav-main{*/
+/*  background-color: #e9ecef;*/
+/*}*/
+.button-nav{
   background-color: #fdebdf;
-  box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
-  min-height: 68px;
-  width: 100%;
-  z-index: 3;
-}
-
-.header ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  overflow: hidden;
-  background-color: #fdebdf;
-}
-
-.header li a {
-  display: block;
-  padding: 20px 20px;
-  text-decoration: none;
-}
-.header a.active {
-  background-color: #fac099;
-  color: black;
-}
-
-.header li a:hover,
-.header .menu-btn:hover {
-  background-color: #edc8af;
-}
-
-.header .logo {
-  display: block;
-  float: left;
-  font-size: 2em;
+  margin-right: 10px;
   padding: 10px 20px;
-  text-decoration: none;
+  border-radius: 12px;
 }
-
-/* menu */
-
-.header .menu {
-  clear: both;
-  max-height: 0;
-  transition: max-height .2s ease-out;
-}
-
-/* menu icon */
-
-.header .menu-icon {
-  cursor: pointer;
-  display: inline-block;
-  float: right;
-  padding: 28px 20px;
-  position: relative;
-  user-select: none;
-}
-
-.header .menu-icon .navicon {
-  background: #333;
-  display: block;
-  height: 2px;
-  position: relative;
-  transition: background .2s ease-out;
-  width: 18px;
-}
-
-.header .menu-icon .navicon:before,
-.header .menu-icon .navicon:after {
-  background: #333;
-  content: '';
-  display: block;
-  height: 100%;
-  position: absolute;
-  transition: all .2s ease-out;
-  width: 100%;
-}
-
-.header .menu-icon .navicon:before {
-  top: 5px;
-}
-
-.header .menu-icon .navicon:after {
-  top: -5px;
-}
-
-/* menu btn */
-
-.header .menu-btn {
-  display: none;
-}
-
-.header .menu-btn:checked ~ .menu {
-  max-height: 240px;
-}
-
-.header .menu-btn:checked ~ .menu-icon .navicon {
-  background: transparent;
-}
-
-.header .menu-btn:checked ~ .menu-icon .navicon:before {
-  transform: rotate(-45deg);
-}
-
-.header .menu-btn:checked ~ .menu-icon .navicon:after {
-  transform: rotate(45deg);
-}
-
-.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
-.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
-  top: 0;
-}
-
-/* 48em = 768px */
-
-@media (min-width: 48em) {
-  .header li {
-    float: left;
-  }
-  .header li a {
-    padding: 20px 30px;
-  }
-  .header .menu {
-    clear: none;
-    float: right;
-    max-height: none;
-  }
-  .header .menu-icon {
-    display: none;
-  }
-}
-
-/* footer */
-
-.nczi-vaccine-num{
-  font-weight: bold;
-}
-.nczi-patient-num{
-  font-weight: bold;
-}
-.admin-footer {
+.button-nav:hover{
   background-color: #fac099;
-  color: #000000;
-  padding-top: 2rem;
-  bottom: 0;
-  width: 100%;
-  height: 357px;
 }
-hr.hrfooter {
-  border-top: 1px solid #000000;
-  width: 100%;
-  margin-top: .8rem;
-  margin-bottom: 1rem;
+.logo-nav img{
+  height: 60px;
+  width: 150px;
+  /*width: 130px;*/
 }
-hr.hrfooter2 {
-  border-top: 1px solid #ffffff;
-  width: 100%;
-  margin-top: .8rem;
-  margin-bottom: 1rem;
+.logo-nav img:hover{
+  cursor: pointer;
 }
+
+/*---*//*FOOTER*//*---*/
+.footer{
+  background-color:  #fdebdf;
+}
+
+.footer-header{
+  border-top: 2px solid black;
+  padding-bottom: 40px;
+}
+.footer-header-text{
+  border: 2px solid black;
+  border-top: none;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+.footer-header-text{
+  padding: 10px 0;
+  text-align: center;
+}
+.footer-nczi-number{
+  font-weight: bold;
+  font-size: 40px;
+  text-align: right;
+}
+
+/*.nczi-vaccine-num{*/
+/*  font-weight: bold;*/
+/*}*/
+/*.nczi-patient-num{*/
+/*  font-weight: bold;*/
+/*}*/
+/*.admin-footer {*/
+/*  background-color: #fac099;*/
+/*  color: #000000;*/
+/*  padding-top: 2rem;*/
+/*  bottom: 0;*/
+/*  width: 100%;*/
+/*  height: 357px;*/
+/*}*/
+/*hr.hrfooter {*/
+/*  border-top: 1px solid #000000;*/
+/*  width: 100%;*/
+/*  margin-top: .8rem;*/
+/*  margin-bottom: 1rem;*/
+/*}*/
+/*hr.hrfooter2 {*/
+/*  border-top: 1px solid #ffffff;*/
+/*  width: 100%;*/
+/*  margin-top: .8rem;*/
+/*  margin-bottom: 1rem;*/
+/*}*/
 
 .content {
   min-height: calc(100% - 68px - 357px);

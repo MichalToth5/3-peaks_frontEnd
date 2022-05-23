@@ -1,60 +1,97 @@
-<header class="header">
-  <a routerLink="/admin/patient" class="logo">Tri Peaks</a>
-  <input class="menu-btn" type="checkbox" id="menu-btn" />
-  <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-  <ul class="menu">
-    <li><a routerLink="/admin/patient" routerLinkActive="active">Pacienti</a></li>
-    <li><a routerLink="/admin/vaccine" routerLinkActive="active">Vakcíny</a></li>
-  </ul>
-</header>
+<!--NAVBAR-->
+<div class="d-flex justify-content-between nav-main">
+  <div class="logo-nav">
+    <img routerLink="/admin/patient" src="/assets/logo-evacc.png">
+  </div>
+  <div class="p-2">
+    <button routerLink="/admin/patient" routerLinkActive="active" class="btn button-nav">Pacienti</button>
+    <button routerLink="/admin/vaccine" routerLinkActive="active" class="btn button-nav">Vakciny</button>
+    <div ngbDropdown class="d-inline-block">
+      <button type="button" class="btn button-nav" id="dropdownBasic1" ngbDropdownToggle>Admin</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button ngbDropdownItem (click)="odhlasenie()">Odhlásiť sa</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--CONTENT-->
 <div class="content">
   <router-outlet></router-outlet>
 </div>
 
 <!-- FOOTER-->
-<footer class=" admin-footer ">
-<div class="container-fluid padding">
-  <div class="row text-center">
-    <div class="col-md-4">
-      <hr class="hrfooter">
-      <h5><img class="mb-2" src="/assets/syringe.png" alt="" width="30" height="30"><b>NCZI informácie</b></h5>
-      <hr class="hrfooter">
-      <p>https://www.nczisk.sk</p>
-      <hr class="hrfooter">
-      <h5><img class="mb-2" src="/assets/syringe.png" alt="" width="30" height="30">Zaočkovania za deň</h5>
-      <hr class="hrfooter">
-      <p class="nczi-vaccine-num" *ngIf="vaccinations != null && vaccinations.sum != null">
-        {{vaccinations.sum}}
-      </p>
-    </div>
-    <div class="col-md-4">
-      <hr class="hrfooter">
-      <h5><img class="mb-2" src="/assets/patient.png" alt="" width="44" height="30">Pacienti v nemocniciach</h5>
-      <hr class="hrfooter">
-      <p class="nczi-patient-num" *ngIf="hospitalPatients != null && hospitalPatients.sum != null">
-        {{hospitalPatients.sum}}
-      </p>
-      <hr class="hrfooter">
-      <h5><img class="mb-2" src="/assets/sick.png" alt="" width="34" height="30">Celkový počet pozitívnych AG testov</h5>
-      <hr class="hrfooter">
-      <p class="nczi-patient-num" *ngIf="positivePatients != null && positivePatients.sum != null">
-        {{positivePatients.sum}}
-      </p>
-    </div>
-    <div class="col-md-4">
-      <hr class="hrfooter">
-      <h5><img class="mb-2" src="/assets/3peaks.png" alt="" width="34" height="30"><b>Tri Peaks</b></h5>
-      <hr class="hrfooter">
-      <p>Tajovského 40</p>
-      <p>974 01 Banská Bystrica</p>
-      <p>github.com/MichalToth5/3-peaks_frontEnd</p>
-      <p>github.com/MichalToth5/3-peaks_backEnd</p>
-    </div>
-    <div class="col-12">
-      <hr class="hrfooter2">
-      <h5>&copy; tripeaks.com</h5>
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <div class="row footer-header">
+          <div class="col-6 footer-header-text" style="font-weight: bold">Zaočkovania za deň</div>
+          <div class="col-6 footer-nczi-number" *ngIf="vaccinations != null && vaccinations.sum != null">
+            {{vaccinations.sum}}
+          </div>
+        </div>
+        <div class="row footer-header">
+          <div class="col-6 footer-header-text" style="font-weight: bold">Pacienti v nemocniciach</div>
+          <div class="col-6 footer-nczi-number" *ngIf="hospitalPatients != null && hospitalPatients.sum != null">
+            {{hospitalPatients.sum}}
+          </div>
+        </div>
+        <div class="row footer-header">
+          <div class="col-6 footer-header-text" style="font-weight: bold">Celkový počet pozitívnych AG testov</div>
+          <div class="col-6 footer-nczi-number" *ngIf="positivePatients != null && positivePatients.sum != null">
+            {{positivePatients.sum}}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 </footer>
+
+
+            <!--<footer class="admin-footer ">-->
+<!--<div class="container-fluid padding">-->
+<!--  <div class="row text-center">-->
+<!--    <div class="col-md-4">-->
+<!--      <hr class="hrfooter">-->
+<!--      <h5><img class="mb-2" src="/assets/syringe.png" alt="" width="30" height="30"><b>NCZI informácie</b></h5>-->
+<!--      <hr class="hrfooter">-->
+<!--      <p>https://www.nczisk.sk</p>-->
+<!--      <hr class="hrfooter">-->
+<!--      <h5><img class="mb-2" src="/assets/syringe.png" alt="" width="30" height="30">Zaočkovania za deň</h5>-->
+<!--      <hr class="hrfooter">-->
+<!--      <p class="nczi-vaccine-num" *ngIf="vaccinations != null && vaccinations.sum != null">-->
+<!--        {{vaccinations.sum}}-->
+<!--      </p>-->
+<!--    </div>-->
+<!--    <div class="col-md-4">-->
+<!--      <hr class="hrfooter">-->
+<!--      <h5><img class="mb-2" src="/assets/patient.png" alt="" width="44" height="30">Pacienti v nemocniciach</h5>-->
+<!--      <hr class="hrfooter">-->
+<!--      <p class="nczi-patient-num" *ngIf="hospitalPatients != null && hospitalPatients.sum != null">-->
+<!--        {{hospitalPatients.sum}}-->
+<!--      </p>-->
+<!--      <hr class="hrfooter">-->
+<!--      <h5><img class="mb-2" src="/assets/sick.png" alt="" width="34" height="30">Celkový počet pozitívnych AG testov</h5>-->
+<!--      <hr class="hrfooter">-->
+<!--      <p class="nczi-patient-num" *ngIf="positivePatients != null && positivePatients.sum != null">-->
+<!--        {{positivePatients.sum}}-->
+<!--      </p>-->
+<!--    </div>-->
+<!--    <div class="col-md-4">-->
+<!--      <hr class="hrfooter">-->
+<!--      <h5><img class="mb-2" src="/assets/3peaks.png" alt="" width="34" height="30"><b>Tri Peaks</b></h5>-->
+<!--      <hr class="hrfooter">-->
+<!--      <p>Tajovského 40</p>-->
+<!--      <p>974 01 Banská Bystrica</p>-->
+<!--      <p>github.com/MichalToth5/3-peaks_frontEnd</p>-->
+<!--      <p>github.com/MichalToth5/3-peaks_backEnd</p>-->
+<!--    </div>-->
+<!--    <div class="col-12">-->
+<!--      <hr class="hrfooter2">-->
+<!--      <h5>&copy; tripeaks.com</h5>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--</footer>-->
 
