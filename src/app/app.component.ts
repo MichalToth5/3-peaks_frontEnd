@@ -9,13 +9,13 @@ import {OAuthService} from "angular-oauth2-oidc";
 export class AppComponent {
   title = 'FrontEnd3Peaks';
 
-  constructor(private ahoj: OAuthService) { }
+  constructor(private oauthservice: OAuthService) { }
 
   prihlasenie() {
-    this.ahoj.loadDiscoveryDocumentAndLogin();
+    this.oauthservice.loadDiscoveryDocumentAndLogin();
   }
 
   odhlasenie() {
-    this.ahoj.logOut();
+    this.oauthservice.logOut();
   }
 }

@@ -1,5 +1,4 @@
 .button {
-  background-color: #fac099;
   border: none;
   color: black;
   padding: 20px;
@@ -10,8 +9,14 @@
   margin: 4px 2px;
   cursor: pointer;
 }
-
-.button4 {border-radius: 12px;}
+.button4 {
+  border-radius: 12px;
+  border-color: #fdebdf;
+  background-color: #fdebdf;
+}
+.button4:hover {
+  background-color: #fac099;
+}
 
 .center {
   display: flex;
