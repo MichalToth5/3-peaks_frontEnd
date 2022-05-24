@@ -10,7 +10,7 @@
       <button type="button" class="btn button-nav" id="dropdownBasic1" ngbDropdownToggle>Admin</button>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
         <button ngbDropdownItem (click)="odhlasenie()">Odhlásiť sa</button>
-        <button ngbDropdownItem (click)="prihlasenie()">prihlasit  sa</button>
+<!--        <button ngbDropdownItem (click)="prihlasenie()">prihlasit  sa</button>-->
       </div>
     </div>
   </div>
@@ -25,24 +25,39 @@
 <footer class="footer">
   <div class="container">
     <div class="row">
-      <div class="col-4">
-        <div class="row footer-header">
-          <div class="col-6 footer-header-text" style="font-weight: bold">Zaočkovania za deň</div>
-          <div class="col-6 footer-nczi-number" *ngIf="vaccinations != null && vaccinations.sum != null">
+      <div class="col-12">
+        <div class="row footer-header d-flex justify-content-center text-center">
+          <div class="footer-header-text" style="font-weight: bold"><img class="footer-image" src="/assets/syringe.png">Zaočkovania za deň</div>
+          <div class="footer-nczi-number" *ngIf="vaccinations != null && vaccinations.sum != null">
             {{vaccinations.sum}}
           </div>
         </div>
-        <div class="row footer-header">
-          <div class="col-6 footer-header-text" style="font-weight: bold">Pacienti v nemocniciach</div>
-          <div class="col-6 footer-nczi-number" *ngIf="hospitalPatients != null && hospitalPatients.sum != null">
+        <div class="row footer-header d-flex justify-content-center text-center">
+          <div class="footer-header-text" style="font-weight: bold"><img  class="footer-image" src="/assets/sick.png">Pacienti v nemocniciach</div>
+          <div class="footer-nczi-number" *ngIf="hospitalPatients != null && hospitalPatients.sum != null">
             {{hospitalPatients.sum}}
           </div>
         </div>
-        <div class="row footer-header">
-          <div class="col-6 footer-header-text" style="font-weight: bold">Celkový počet pozitívnych AG testov</div>
-          <div class="col-6 footer-nczi-number" *ngIf="positivePatients != null && positivePatients.sum != null">
+        <div class="row footer-header d-flex justify-content-center text-center">
+          <div class="footer-header-text" style="font-weight: bold"><img class="footer-image" src="/assets/tests.png">Celkový počet pozitívnych AG testov</div>
+          <div class="footer-nczi-number" *ngIf="positivePatients != null && positivePatients.sum != null">
             {{positivePatients.sum}}
           </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="row footer-informations">
+          <div class="col-12 d-flex justify-content-center">
+            <h3 style="font-weight: bold">Užitočné odkazy</h3>
+          </div>
+            <div class="col-12 d-flex justify-content-center">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><a class="footer-links" href="https://data.korona.gov.sk/" target="_blank">NCZI & IZA API</a></li>
+                <li class="list-group-item"><a class="footer-links" href="https://www.slovenskoproticovidu.sk/sk/" target="_blank">Slovensko proti Covidu</a></li>
+                <li class="list-group-item"><a class="footer-links" routerLink="/admin/informations" target="_blank">Informácie o aplikácii</a></li>
+                <span class="d-flex justify-content-center" style="font-weight: bold">&copy; TriPeaks 2022</span>
+              </ul>
+            </div>
         </div>
       </div>
     </div>
@@ -67,7 +82,7 @@
 <!--    </div>-->
 <!--    <div class="col-md-4">-->
 <!--      <hr class="hrfooter">-->
-<!--      <h5><img class="mb-2" src="/assets/patient.png" alt="" width="44" height="30">Pacienti v nemocniciach</h5>-->
+<!--      <h5><img class="mb-2" src="/assets/tests.png" alt="" width="44" height="30">Pacienti v nemocniciach</h5>-->
 <!--      <hr class="hrfooter">-->
 <!--      <p class="nczi-patient-num" *ngIf="hospitalPatients != null && hospitalPatients.sum != null">-->
 <!--        {{hospitalPatients.sum}}-->

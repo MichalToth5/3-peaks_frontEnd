@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Patient} from "../models/patient.model";
+import {PageCount} from "../models/pageCount.model";
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,8 @@ export class PatientService {
   addPatient(patient:Patient) : Observable<Patient>{
     return this.http.post<Patient>(`${this.apiUrl}`, patient);
   }
-  getPatients() : Observable<Patient[]>{
-    return this.http.get<Patient[]>(`${this.apiUrl}`);
+  getPatients(page: number) : Observable<Patient[]>{
+    return this.http.get<Patient[]>(`${this.apiUrl}?page=${page}`)
   }
   getPatientById(patientId:number) : Observable<Patient>{
     return this.http.get<Patient>(`${this.apiUrl}/${patientId}`);
@@ -32,6 +33,8 @@ export class PatientService {
         search: search
       }
     });
-
+  }
+  getPageCount() : Observable<PageCount> {
+    return this.http.get<PageCount>(`${this.apiUrl}/pageCount`);
   }
 }

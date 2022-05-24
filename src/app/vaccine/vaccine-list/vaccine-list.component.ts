@@ -22,4 +22,7 @@ export class VaccineListComponent implements OnInit{
   displayVaccine(vaccineId) {
     this.router.navigate(['/admin/vaccine/add', {id:vaccineId}])
   }
+  public goBack() {
+    this.router.navigate(['/admin/patient'])
+  }
 }

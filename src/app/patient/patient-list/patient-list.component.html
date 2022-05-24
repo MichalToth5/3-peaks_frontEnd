@@ -39,6 +39,8 @@
           <td>{{p.city + ', ' + p.street}}</td>
           <td>
             {{p.vaccineShots.length}}
+            <span *ngIf="p.vaccineShots.length === 0" class="badge alert-warning">Vakcinácia umožnená</span>
+            <span *ngIf="p.vaccineShots.length === 1" class="badge alert-primary">Prvá dávka</span>
             <span *ngIf="p.vaccineShots.length === 2" class="badge alert-danger">Plna zaockovanost</span>
             <span *ngIf="p.vaccineShots.length === 3" class="badge alert-success">Booster</span>
           </td>
@@ -47,7 +49,25 @@
         </tbody>
       </table>
     </div>
-
   </div>
+<!--    PAGINATION -->
+  <div class="d-flex justify-content-center">
+    <div aria-label="page-navigation">
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" (click)="changePage(currentPage - 1)" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" (click)="changePage(currentPage + 1)" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+<!--    PAGINATION-->
   <hr class="my-4">
 </div>

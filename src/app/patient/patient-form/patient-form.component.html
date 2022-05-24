@@ -34,9 +34,9 @@
           <div class="form-group">
             <label>Pohlavie:</label>
             <select class="form-select" formControlName="sex">
-              <option>Žena</option>
-              <option>Muž</option>
-              <option>Iné</option>
+              <option value="female">Žena</option>
+              <option value="male">Muž</option>
+              <option value="other">Iné</option>
             </select>
           </div>
         </div>
@@ -46,12 +46,7 @@
           <div>
             <label>Telefónne číslo:</label>
             <div class="form-group">
-              <div class="input-group sm-4">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">+421</span>
-                </div>
                 <input type="text" class="form-control" formControlName="telephoneNumber"  aria-label="Username" aria-describedby="basic-addon1">
-              </div>
             </div> <br>
             <div>
               <label>Email:</label>
@@ -97,6 +92,7 @@
         <button (click)="updatePatient()"  *ngIf="form.value.id != null" type="button" class="patient-form-button">Update pacienta</button>
         <button (click)="deletePatient()"  *ngIf="form.value.id != null" type="button" class="patient-form-button">Vymazať pacienta</button>
         <button (click)="addPatient()"  *ngIf="form.value.id === null" type="button" class="patient-form-button">Pridať pacienta</button>
+        <button (click)="goBack()" type="button" class="patient-form-button">Späť</button>
       </div>
     </div>
   </form>

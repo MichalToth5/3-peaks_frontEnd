@@ -30,6 +30,23 @@ div.content {
   padding: 1px 16px;
   height: 1000px;
 }
+.page-navigation{
+  position: center;
+}
+.page-link{
+  background-color: white;
+  color: black;
+  border-color: #fac099;
+}
+.page-item.active .page-link {
+  background-color: #fac099;
+  color: black;
+  border-color: #fac099;
+}
+.page-item:hover .page-link{
+  background-color: #fdebdf;
+  cursor: pointer;
+}
 
 @media screen and (max-width: 700px) {
   .sidebar {

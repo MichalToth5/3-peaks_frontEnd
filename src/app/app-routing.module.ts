@@ -7,6 +7,8 @@ import {VaccineFormComponent} from "./vaccine/vaccine-form/vaccine-form.componen
 import {VaccineListComponent} from "./vaccine/vaccine-list/vaccine-list.component";
 import {AdminLayoutComponent} from "./admin-layout/admin-layout.component";
 import {PatientShotFormComponent} from "./patient/patient-shot-form/patient-shot-form.component";
+import {LandingPageComponent} from "./landing-page/landing-page.component";
+import {InformationsComponent} from "./informations/informations.component";
 
 const routes: Routes = [
   {
@@ -34,10 +36,18 @@ const routes: Routes = [
         component: VaccineFormComponent
       },
       {
+        path: 'informations',
+        component: InformationsComponent
+      },
+      {
         path: '',
         component: PatientListComponent
       }
     ]
+  },
+  {
+    path: '',
+    component: LandingPageComponent
   }
 ];
 

@@ -86,6 +86,17 @@ export class PatientFormComponent implements OnInit, OnDestroy {
         showConfirmButton: false,
         timer: 3000
       })
+    }, error => {
+      let message  = ""
+      for (let errorMessage of Object.values(error.error)){
+        message = message + errorMessage + "\n"
+      }
+      Swal.fire({
+        icon: 'warning',
+        title: message,
+        showConfirmButton: false,
+        timer: 3000
+      })
     })
   }
 
@@ -108,6 +119,10 @@ export class PatientFormComponent implements OnInit, OnDestroy {
 
   public editVaccineShot(id: number): void {
     this.router.navigate(['/admin/patient/shot/add', {id:id,patientId:this.id}]);
+
+  }
+  public goBack() {
+    this.router.navigate(['/admin/patient'])
 
   }
 }

@@ -83,5 +83,7 @@ export class VaccineFormComponent implements OnInit{
     })
   }
 
-
+  public goBack() {
+    this.router.navigate(['/admin/vaccine'])
+  }
 }

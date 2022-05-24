@@ -41,6 +41,7 @@
       <button (click)="addVaccine()" *ngIf="form.value.id === null" type="button" class="vaccine-form-button">Pridať vakcínu</button>
       <button (click)="updateVaccine()" *ngIf="form.value.id != null" type="button" class="vaccine-form-button">Upraviť vakcínu</button>
       <button (click)="deleteVaccine()" *ngIf="form.value.id != null" type="button" class="vaccine-form-button">Vymazať vakcínu</button>
+      <button (click)="goBack()" type="button" class="vaccine-form-button">Späť</button>
     </div>
     <hr class="my-4">
   </form>

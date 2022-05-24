@@ -13,7 +13,7 @@ export class AdminLayoutComponent implements OnInit {
 
   vaccinations: Nczi;
   hospitalPatients: Nczi;
-  positivePatients: Nczi
+  positivePatients: Nczi;
   constructor(private service:NcziService, private oauthservice: OAuthService) { }
 
   ngOnInit(): void {

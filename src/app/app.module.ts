@@ -16,6 +16,8 @@ import {NullValidationHandler, OAuthModule, OAuthService} from "angular-oauth2-o
 import {authCodeFlowConfig} from "./AuthConfig";
 import {RouterModule} from "@angular/router";
 import {AuthInterceptor} from "./AuthInterceptor";
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { InformationsComponent } from './informations/informations.component';
 
 function init_app(oauthService: OAuthService) {
   return () => configureWithNewConfigApi(oauthService);
@@ -36,7 +38,9 @@ function configureWithNewConfigApi(oauthService: OAuthService) {
     VaccineFormComponent,
     VaccineListComponent,
     AdminLayoutComponent,
-    PatientShotFormComponent
+    PatientShotFormComponent,
+    LandingPageComponent,
+    InformationsComponent
   ],
   imports: [
     BrowserModule,

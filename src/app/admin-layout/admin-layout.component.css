@@ -6,11 +6,13 @@ body {
 /*---*//*NAVBAR*//*---*/
 
 /*bg color for navbar*/
-/*.nav-main{*/
-/*  background-color: #e9ecef;*/
-/*}*/
+.nav-main{
+  background-color: #fdebdf;
+  margin-bottom: 10px;
+}
 .button-nav{
   background-color: #fdebdf;
+  border-color: #fac099;
   margin-right: 10px;
   padding: 10px 20px;
   border-radius: 12px;
@@ -19,6 +21,8 @@ body {
   background-color: #fac099;
 }
 .logo-nav img{
+  margin-left: 10px;
+  margin-top: 5px;
   height: 60px;
   width: 150px;
   /*width: 130px;*/
@@ -31,26 +35,54 @@ body {
 .footer{
   background-color:  #fdebdf;
 }
-
 .footer-header{
-  border-top: 2px solid black;
-  padding-bottom: 40px;
+  border: 1px solid #fac099;
+  border-radius: 12px;
+  margin: 10px 0;
 }
-.footer-header-text{
-  border: 2px solid black;
-  border-top: none;
-  border-bottom-right-radius: 12px;
-  border-bottom-left-radius: 12px;
-}
-.footer-header-text{
-  padding: 10px 0;
-  text-align: center;
+.footer-image{
+  margin: 15px 10px;
+  height: 50px;
+  width: 50px;
 }
 .footer-nczi-number{
+  margin-top: 15px;
   font-weight: bold;
-  font-size: 40px;
-  text-align: right;
+  font-size: 30px;
 }
+.footer-informations{
+  margin: 15px 10px;
+}
+.list-group{
+  margin: 10px 0;
+}
+.list-group-item{
+  background-color: #fdebdf;
+  text-align: center;
+}
+.footer-links{
+  text-decoration: none;
+  color: black;
+}
+
+/*.footer-header{*/
+/*  padding-bottom: 40px;*/
+/*}*/
+/*.footer-header-text{*/
+/*  border: 2px solid black;*/
+/*  border-top: none;*/
+/*  border-bottom-right-radius: 12px;*/
+/*  border-bottom-left-radius: 12px;*/
+/*}*/
+/*.footer-header-text{*/
+/*  padding: 10px 0;*/
+/*  text-align: center;*/
+/*}*/
+/*.footer-nczi-number{*/
+/*  font-weight: bold;*/
+/*  font-size: 40px;*/
+/*  text-align: right;*/
+/*}*/
 
 /*.nczi-vaccine-num{*/
 /*  font-weight: bold;*/
