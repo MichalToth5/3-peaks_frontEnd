@@ -5,7 +5,7 @@ export class Patient {
   firstName: string;
   lastName: string;
   idNumber: string;
-  dateOfBirth: Date;
+  dateOfBirth: string;
   sex: string;
   telephoneNumber: string;
   emailAddrs: string;

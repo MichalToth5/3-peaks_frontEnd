@@ -27,4 +27,13 @@
 body {
   font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+.icon-form{
+  background-size: 20px;
+  cursor: pointer;
+}
+.btn-link {
+  color: #fac099;
+}
+
+
 
