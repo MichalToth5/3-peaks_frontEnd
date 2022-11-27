@@ -9,7 +9,7 @@ import {PageCount} from "../models/pageCount.model";
 })
 export class PatientService {
 
-  private apiUrl = 'http://localhost:8080/api/patient'
+  private apiUrl = 'http://localhost/api/patient'
   constructor(private http : HttpClient) { }
 
   addPatient(patient:Patient) : Observable<Patient>{

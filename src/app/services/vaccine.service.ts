@@ -9,7 +9,7 @@ import {Vaccine} from "../models/vaccine.model";
 })
 export class VaccineService {
 
-  private apiUrl = 'http://localhost:8080/api/vaccine'
+  private apiUrl = 'http://localhost/api/vaccine'
   constructor(private http:HttpClient) { }
 
   addVaccine(vaccine:Vaccine) : Observable<Vaccine>{

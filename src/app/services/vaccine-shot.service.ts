@@ -7,7 +7,7 @@ import {VaccineShot} from "../models/vaccine-shot.model";
   providedIn: 'root'
 })
 export class VaccineShotService {
-  private apiUrl = 'http://localhost:8080/api/shot'
+  private apiUrl = 'http://localhost/api/shot'
   constructor(private http : HttpClient) { }
 
   addVaccineShot(vaccineShot:VaccineShot) : Observable<VaccineShot>{

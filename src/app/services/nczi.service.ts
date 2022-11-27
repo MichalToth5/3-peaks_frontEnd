@@ -9,9 +9,9 @@ import {Nczi} from "../models/nczi.model";
 })
 export class NcziService {
 
-  private apiUrl = 'http://localhost:8080/api/nczi/vaccinations'
-  private apiUrl1 = 'http://localhost:8080/api/nczi/hospital/patients'
-  private apiUrl2 = 'http://localhost:8080/api/nczi/agtests'
+  private apiUrl = 'http://localhost/api/nczi/vaccinations'
+  private apiUrl1 = 'http://localhost/api/nczi/hospital/patients'
+  private apiUrl2 = 'http://localhost/api/nczi/agtests'
   constructor(private http:HttpClient) { }
 
   getVaccinations() : Observable<Nczi>{
